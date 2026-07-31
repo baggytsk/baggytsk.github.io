@@ -5,15 +5,15 @@ subtitle: "인생을 즐기되 제대로"
 email: "jinoj0423@gmail.com"
 description: >-
   TIL을 차근차근 적어가보겠습니다.
-url: "https://baggy.github.io"
-repository: "JINOJ37/baggy.github.io"
-github_username: JINOJ37
+url: "https://baggytsk.github.io"
+repository: "baggytsk/baggytsk.github.io"
+github_username: baggytsk
 minimal_mistakes_skin: default
 search: true
 
 # Build settings
 markdown: kramdown
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: mmistakes/minimal-mistakes@4.28.0
 
 # Outputting
 permalink: /:categories/:title/
@@ -35,16 +35,16 @@ plugins:
 
 author:
   name   : "남 진"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/baggy-photo.png"
   bio    : "하나씩 차근차근 기록해가는 내 메모리"
   location : "Seoul, Korea"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://baggy.github.io"
+      url: "https://baggytsk.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/JINOJ37"
+      url: "https://github.com/baggytsk"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/baggy_tsk"
@@ -53,10 +53,10 @@ footer:
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://baggy.github.io"
+      url: "https://baggytsk.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/JINOJ37"
+      url: "https://github.com/baggytsk"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/baggy_tsk"
@@ -70,11 +70,14 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: true
+      show_date: true
+      comments: false
       share: true
       related: true
       toc: true
       toc_sticky: true
+      sidebar:
+        nav: "categories"
   # _pages
   - scope:
       path: "_pages"

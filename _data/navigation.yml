@@ -1,9 +1,33 @@
 main:
-  - title: "Posts"
-    url: /posts/
+  - title: "Home"
+    url: /
   - title: "Categories"
     url: /categories/
-  - title: "Tags"
-    url: /tags/
   - title: "About"
     url: /about/
+  - title: "GitHub"
+    url: https://github.com/baggytsk
+
+categories:
+  - title: "개발"
+    children:
+      - title: "Backend"
+        url: /categories/backend/
+      - title: "Frontend"
+        url: /categories/frontend/
+      - title: "Infra"
+        url: /categories/infra/
+  - title: "코테"
+    children:
+      - title: "Java"
+        url: /categories/java/
+      - title: "Codetest"
+        url: /categories/codetest/
+  - title: "읽기"
+    children:
+      - title: "IT 소식"
+        url: /categories/news/
+  - title: "기록"
+    children:
+      - title: "회고"
+        url: /categories/retro/
