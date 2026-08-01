@@ -1,5 +1,5 @@
 ---
-title: "IT 소식"
+title: "IT News"
 layout: category
 permalink: /categories/news/
 taxonomy: news

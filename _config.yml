@@ -1,7 +1,6 @@
 # Site settings
 locale: "ko-KR"
-title: "baggy"
-subtitle: "인생을 즐기되 제대로"
+title: "Baggy TechLog"
 email: "jinoj0423@gmail.com"
 description: >-
   TIL을 차근차근 적어가보겠습니다.
@@ -34,32 +33,17 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "남 진"
   avatar : "/assets/images/baggy-photo.png"
   bio    : "하나씩 차근차근 기록해가는 내 메모리"
-  location : "Seoul, Korea"
-  links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://baggytsk.github.io"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/baggytsk"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/baggy_tsk"
 
 footer:
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://baggytsk.github.io"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/baggytsk"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/baggy_tsk"
+      url: "https://instagram.com/baggy_tsket"
 
 defaults:
   # _posts
@@ -69,10 +53,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: false
       show_date: true
       comments: false
-      share: true
+      share: false
       related: true
       toc: true
       toc_sticky: true

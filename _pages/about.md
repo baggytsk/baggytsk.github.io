@@ -3,12 +3,16 @@ permalink: /about/
 title: "About"
 ---
 
-![profile](/assets/images/baggy-profile.jpg){: .align-left width="150"}
+<br>
 
-Spring Boot(Java 21), FastAPI, React/TypeScript로 개발하고 Docker/AWS로 배포합니다. 완성도보다 꾸준함을 목표로 배운 것과 읽은 것을 기록하는 블로그입니다.
+![profile](/assets/images/baggy-profile.jpg){: .align-center width="500"}
 
-- 🎂 2000.04.23
-- 🏠 서울 서초구
-- ✉️ jinoj0423@gmail.com
-- 👨‍💻 [github.com/baggytsk](https://github.com/baggytsk)
-- 🏫 중앙대학교 소프트웨어학부 (2019.03~2026.02) · 평균학점 4.02/4.5
+안녕하세요, **백엔드 개발자 Baggy**입니다.
+
+공부하면서 배운 것과 느낀 것을, **완성도보다 꾸준함**을 목표로 기록해보려고 합니다.
+
+---
+
+- 🏠 **Location** — Seocho-Gu, Seoul
+- ✉️ **Email** — jinoj0423@gmail.com
+- 🏫 **Education** — Chung-Ang University, Computer Science and Engineering

@@ -6,10 +6,12 @@
 
 ## 목차
 
-- [Backend](https://baggytsk.github.io/categories/backend/)
-- [Frontend](https://baggytsk.github.io/categories/frontend/)
-- [Infra](https://baggytsk.github.io/categories/infra/)
-- [Java](https://baggytsk.github.io/categories/java/)
-- [Codetest](https://baggytsk.github.io/categories/codetest/)
-- [IT 소식](https://baggytsk.github.io/categories/news/)
-- [회고](https://baggytsk.github.io/categories/retro/)
+- **Project**
+  - [Backend](https://baggytsk.github.io/categories/backend/)
+  - [Infra](https://baggytsk.github.io/categories/infra/)
+- **Study**
+  - [Java](https://baggytsk.github.io/categories/java/)
+  - [Algorithm](https://baggytsk.github.io/categories/codetest/)
+- **Log**
+  - [IT News](https://baggytsk.github.io/categories/news/)
+  - [Daily Notes](https://baggytsk.github.io/categories/retro/)

@@ -3,7 +3,247 @@
 
 @charset "utf-8";
 
+/* ============================================================
+   0. 기본 변수 — @import 전에 있어야 적용됨 (자주 안 건드려도 되는 부분)
+   ============================================================ */
+
+$sans-serif: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+// 전체 배경/텍스트는 흰색/검정, 파란색은 hover(포인트) 상태에만 쓰이도록 분리
+$background-color: #fff;
+$text-color: #111;
+$code-background-color: #fafafa;
+$form-background-color: #f5f5f5;
+$footer-background-color: #f5f5f5;
+$border-color: #ddd;
+
 $primary-color: #2B6CB0;
+$link-color: $text-color;
+$link-color-hover: $primary-color;
+$link-color-visited: $text-color;
+$masthead-link-color: $text-color;
+$masthead-link-color-hover: $primary-color;
+$navicon-link-color-hover: $primary-color;
+
+// ⚠️ 이 두 변수는 테마 내부적으로 "왼쪽 사이드바 폭"과 "On this page 폭"에 동시에 쓰임
+// → 여기서는 왼쪽 사이드바 폭 기준으로 씀. On this page 폭은 아래 3-2에서 따로 200px로 고정 오버라이드함
+$right-sidebar-width-narrow: 250px;
+$right-sidebar-width: 250px;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
+
+
+/* ============================================================
+   1. 공통 — 홈 화면 + 포스트 화면 모두 적용 (상단바 / 사이드바)
+   ============================================================ */
+
+/* ---- 1-1. 글자 ---- */
+
+// 사이트 제목 (좌상단 "Baggy TechLog")
+.site-title {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+// 사이트 부제목 (제목 옆 작은 글씨)
+.site-subtitle {
+  font-size: 0.75em;
+  font-weight: 400;
+}
+
+// 상단 네비게이션 메뉴 (Home / Categories / About ...)
+.masthead__menu-item a {
+  font-size: 0.75em;
+  font-weight: 700;
+}
+
+// 사이드바 - 프로필 이름
+.author__name {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+// 사이드바 - 프로필 소개글
+.author__bio {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+// 사이드바 - 카테고리 목록 (Project / Study / Log 및 하위 항목)
+.nav__list {
+  font-size: 0.7em;
+  font-weight: 400;
+}
+
+/* ---- 1-2. 폭 / 간격 / 효과 ---- */
+
+// 상단 바(masthead) 아래 구분선 제거
+.masthead {
+  border-bottom: none;
+}
+
+// 사이드바 카테고리 링크에 마우스 올려도 색/밑줄 안 바뀌게
+.nav__list a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+// 사이드바 전체가 마우스 올리기 전엔 흐릿하다가(opacity 0.75) 올리면 선명해지는(1) 효과 제거
+// — "커서 다가가면 부각된다"의 원인이 nav 링크가 아니라 사이드바 자체 투명도였음
+.sidebar {
+  opacity: 1;
+}
+
+// 프로필 사진 테두리 제거
+.author__avatar img {
+  border: none;
+  padding: 0;
+}
+
+
+/* ============================================================
+   2. 홈 화면 (글 목록)
+   ============================================================ */
+
+/* ---- 2-1. 글자 ---- */
+
+// 목록에 뜨는 글 제목 (예: "블로그 첫 세팅 완료")
+.archive__item-title {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+// 목록에 뜨는 글 요약(excerpt)
+.archive__item-excerpt {
+  font-size: 0.6em;
+  font-weight: 400;
+}
+
+/* ---- 2-2. 폭 / 간격 ---- */
+
+// 목록에서 글과 글 사이 간격
+.list__item {
+  margin-bottom: 2em;
+}
+
+// 목록 영역 한 줄 길이를 줄이기 (최대 폭 지정 + 가운데 정렬) — 포스트 페이지(.page__inner-wrap)와 동일한 방식
+.archive {
+  max-width: 600px; // 포스트 화면 폭이랑 맞추려면 같은 숫자로
+  margin-inline: auto;
+  float: none;
+}
+
+
+/* ============================================================
+   3. 포스트 화면 (글 상세)
+   ============================================================ */
+
+/* ---- 3-1. 글자 ---- */
+
+// 포스트 제목 (글 상세 페이지 상단 큰 제목)
+.page__title {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+// 본문 텍스트 전체 기준값 (크기/굵기/줄 간격)
+.page__content {
+  font-size: 0.75em;
+  font-weight: 400;
+  line-height: 1.7; // 줄 간격. 1 = 촘촘, 2 = 넉넉 (보통 1.4~1.8 사이에서 조절)
+}
+
+// 본문 안의 요소별 세부 설정
+.page__content {
+  p {
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+
+  h4 {
+    font-size: 1.25em;
+    font-weight: 700;
+  }
+
+  li {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  blockquote {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  code {
+    font-size: 0.9em;
+  }
+}
+
+// 글 상단 작성 날짜 (제목 바로 아래)
+.page__meta-date {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+
+// 태그 / 카테고리 줄 (레이블 + 항목 전체)
+.page__taxonomy {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+// 태그 / 카테고리 개별 항목(칩)만 따로 조절하고 싶으면 이걸 사용
+.page__taxonomy-item {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+// 글 하단 "Updated: ..." 줄
+.page__date {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+// "On this page" 목차 제목 글자 크기
+.toc .nav__title {
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+/* ---- 3-2. 폭 / 간격 ---- */
+
+// 포스트 본문 영역 한 줄 길이를 줄이기 (최대 폭 지정 + 가운데 정렬)
+.page .page__inner-wrap {
+  max-width: 600px; // 숫자를 줄이면 더 좁아짐
+  margin-inline: auto;
+  float: none;
+}
+
+// "On this page" 박스 폭을 왼쪽 사이드바와 별개로 200px 고정 + 본문과의 간격
+@media (min-width: 64em) {
+  .sidebar__right {
+    width: 200px;
+    margin-inline-end: -240px; // -(200px 폭 + 40px 간격). 40을 키우면 본문과 더 벌어짐
+  }
+}

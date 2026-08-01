@@ -1,5 +1,5 @@
 ---
-title: "회고"
+title: "Daily Notes"
 layout: category
 permalink: /categories/retro/
 taxonomy: retro

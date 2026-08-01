@@ -1,5 +1,5 @@
 ---
-title: "Codetest"
+title: "Algorithm"
 layout: category
 permalink: /categories/codetest/
 taxonomy: codetest
