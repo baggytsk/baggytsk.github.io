@@ -1,6 +1,6 @@
 backend: Backend
 infra: Infra
 java: Java
-codetest: Algorithm
+algorithm: Algorithm
 news: IT News
-retro: Daily Notes
+daily: Daily Notes

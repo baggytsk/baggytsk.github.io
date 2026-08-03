@@ -1,7 +1,7 @@
 ---
 title: "Daily Notes"
 layout: category
-permalink: /categories/retro/
+permalink: /categories/daily/
 taxonomy: retro
 author_profile: true
 sidebar:

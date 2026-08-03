@@ -3,7 +3,6 @@ title: "블로그 첫 세팅 완료"
 excerpt: "GitHub Pages 블로그를 세 번째로 다시 시작한 날"
 categories:
   - retro
-tags: [blog, jekyll]
 date: 2026-07-31
 last_modified_at: 2026-07-31
 ---

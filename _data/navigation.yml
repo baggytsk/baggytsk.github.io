@@ -18,10 +18,10 @@ categories:
       - title: "Java"
         url: /categories/java/
       - title: "Algorithm"
-        url: /categories/codetest/
+        url: /categories/algorithm/
   - title: "Log"
     children:
       - title: "IT News"
         url: /categories/news/
       - title: "Daily Notes"
-        url: /categories/retro/
+        url: /categories/daily/
