@@ -7,21 +7,15 @@ main:
     url: /categories/
 
 categories:
-  - title: "Project"
-    children:
-      - title: "Backend"
-        url: /categories/backend/
-      - title: "Infra"
-        url: /categories/infra/
+  # 글이 있는 카테고리만 보임 (2026-11-04). 새 카테고리에 첫 글을 쓰면 아래 주석을 풀기
+  # - Project: Backend /categories/backend/, Infra /categories/infra/
+  # - Study: Java /categories/java/
+  # - Log: IT News /categories/news/
   - title: "Study"
     children:
-      - title: "Java"
-        url: /categories/java/
       - title: "Algorithm"
         url: /categories/algorithm/
   - title: "Log"
     children:
-      - title: "IT News"
-        url: /categories/news/
       - title: "Daily Notes"
         url: /categories/daily/

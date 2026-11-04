@@ -7,7 +7,8 @@
    0. 기본 변수 — @import 전에 있어야 적용됨 (자주 안 건드려도 되는 부분)
    ============================================================ */
 
-$sans-serif: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$sans-serif: "SUIT Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$monospace: "JetBrains Mono", "D2 coding", Monaco, Consolas, "Lucida Console", monospace;
 
 // 전체 배경/텍스트는 흰색/검정, 파란색은 hover(포인트) 상태에만 쓰이도록 분리
 $background-color: #fff;
@@ -17,7 +18,7 @@ $form-background-color: #f5f5f5;
 $footer-background-color: #f5f5f5;
 $border-color: #ddd;
 
-$primary-color: #2B6CB0;
+$primary-color: #D6336C; // 포인트: 로즈 핑크 (노션 BAGGY 대시보드 핑크와 맞춤, 2026-11-04. 이전 파랑 #2B6CB0)
 $link-color: $text-color;
 $link-color-hover: $primary-color;
 $link-color-visited: $text-color;
@@ -116,7 +117,7 @@ $right-sidebar-width: 250px;
 
 // 목록에 뜨는 글 요약(excerpt)
 .archive__item-excerpt {
-  font-size: 0.6em;
+  font-size: 0.75em;
   font-weight: 400;
 }
 
@@ -129,9 +130,10 @@ $right-sidebar-width: 250px;
 
 // 목록 영역 한 줄 길이를 줄이기 (최대 폭 지정 + 가운데 정렬) — 포스트 페이지(.page__inner-wrap)와 동일한 방식
 .archive {
-  max-width: 600px; // 포스트 화면 폭이랑 맞추려면 같은 숫자로
+  max-width: 700px; // 포스트 화면 폭이랑 맞추려면 같은 숫자로
   margin-inline: auto;
   float: none;
+  display: flow-root; // 왼쪽 사이드바(float) 아래로 내려간 글이 왼쪽으로 밀리는 것 방지
 }
 
 
@@ -149,9 +151,9 @@ $right-sidebar-width: 250px;
 
 // 본문 텍스트 전체 기준값 (크기/굵기/줄 간격)
 .page__content {
-  font-size: 0.75em;
+  font-size: 0.85em;
   font-weight: 400;
-  line-height: 1.7; // 줄 간격. 1 = 촘촘, 2 = 넉넉 (보통 1.4~1.8 사이에서 조절)
+  line-height: 1.75; // 줄 간격. 1 = 촘촘, 2 = 넉넉 (보통 1.4~1.8 사이에서 조절)
 }
 
 // 본문 안의 요소별 세부 설정
@@ -159,7 +161,8 @@ $right-sidebar-width: 250px;
   p {
     font-size: 1em;
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.75;
+    margin-bottom: 1.1em;
   }
 
   h1 {
@@ -168,13 +171,16 @@ $right-sidebar-width: 250px;
   }
 
   h2 {
-    font-size: 1.75em;
+    font-size: 1.5em;
     font-weight: 700;
   }
 
   h3 {
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 700;
+    margin-top: 2em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid $border-color;
   }
 
   h4 {
@@ -235,7 +241,7 @@ $right-sidebar-width: 250px;
 
 // 포스트 본문 영역 한 줄 길이를 줄이기 (최대 폭 지정 + 가운데 정렬)
 .page .page__inner-wrap {
-  max-width: 600px; // 숫자를 줄이면 더 좁아짐
+  max-width: 700px; // 숫자를 줄이면 더 좁아짐
   margin-inline: auto;
   float: none;
 }
@@ -246,4 +252,344 @@ $right-sidebar-width: 250px;
     width: 200px;
     margin-inline-end: -240px; // -(200px 폭 + 40px 간격). 40을 키우면 본문과 더 벌어짐
   }
+}
+
+
+/* ============================================================
+   4. 표 (회고 KPT·목표 표) — 2026-11-04
+   ============================================================ */
+
+@media (min-width: 48em) {
+  .page__content > table {
+    display: table; // 테마 기본(block)은 표가 내용 폭만큼만 줄어듦 → 본문 폭에 맞춤
+    width: 100%;
+  }
+}
+
+// `>`: 본문 표만. 코드 블록 안의 표(줄 번호용)에는 안 걸리게
+.page__content > table {
+  font-size: 0.9em;
+  border-collapse: collapse;
+
+  th {
+    background: #f6f6f8;
+    font-weight: 700;
+  }
+
+  th, td {
+    padding: 0.5em 0.75em;
+    border-bottom: 1px solid $border-color;
+  }
+
+  tbody tr:nth-child(even) {
+    background: #fafbfc;
+  }
+}
+
+
+/* ============================================================
+   5. 홈 목록 카드형 — 2026-11-04
+   ============================================================ */
+
+.archive .list__item .archive__item {
+  padding: 1em 1.25em;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.archive .list__item {
+  margin-bottom: 1em; // 카드끼리 간격 (위 2-2의 2em보다 좁게)
+}
+
+.archive__item-title {
+  margin-top: 0;
+
+  a { text-decoration: none; }
+}
+.archive__item:hover .archive__item-title a { color: $primary-color; }
+
+.archive .archive__item-excerpt {
+  margin-bottom: 0; // 카드 아래쪽 빈 공간 줄이기
+}
+
+
+/* ============================================================
+   5-2. 다듬기 — 2026-11-04
+   ============================================================ */
+
+// 상단 바: 스크롤해도 위에 붙어 있고, 뒤 내용이 살짝 비침
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.masthead__inner-wrap, .greedy-nav { background: transparent; }
+
+// 상단 바가 붙어 있으니, 붙는 사이드바·목차는 그 아래에서 멈추게
+.sidebar.sticky, .sidebar__right.sticky { top: 6em; } // 상단 바 높이(약 80px) + 여유
+
+// 포스트 제목 조금 크게
+.page__title { font-size: 1.5em; letter-spacing: -0.01em; }
+
+// 본문 링크: 포인트 색 + 얇은 밑줄
+.page__content a {
+  color: $primary-color;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.page__content .toc a { color: inherit; text-decoration: none; } // 목차는 밑줄 없이
+
+// 인용: 왼쪽 포인트 선
+.page__content blockquote {
+  border-left: 3px solid $primary-color;
+  background: #fdf3f7;
+  padding: 0.6em 1em;
+  margin-left: 0;
+  font-style: normal;
+}
+
+// 카드 hover 때 왼쪽에 포인트 색
+.archive .list__item .archive__item:hover { border-color: $primary-color; }
+
+/* ============================================================
+   5-3. 홈 소개 · 카드 칩 · 사이드바 — 2026-11-04
+   ============================================================ */
+
+// 홈 상단 소개 (index.html)
+.home-hero {
+  padding: 1.5em 0 2em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid $border-color;
+
+  &__eyebrow {
+    margin: 0;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $primary-color;
+  }
+
+  &__title {
+    margin: 0.3em 0 0.4em;
+    font-size: 1.6em;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  &__desc {
+    margin: 0 0 1em;
+    font-size: 0.85em;
+    color: #666;
+  }
+
+  &__links a {
+    display: inline-block;
+    margin: 0 0.4em 0.4em 0;
+    padding: 0.3em 0.9em;
+    font-size: 0.75em;
+    font-weight: 700;
+    border: 1px solid $border-color;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+
+    &:hover {
+      color: #fff;
+      background: $primary-color;
+      border-color: $primary-color;
+    }
+  }
+}
+
+// 홈 "Recent Posts" 제목
+.archive__subtitle {
+  font-size: 0.8em;
+  letter-spacing: 0.05em;
+  border-bottom: none;
+}
+
+// 카드 위 카테고리 칩 (_includes/archive-single.html)
+.archive__item-chip {
+  display: inline-block;
+  margin-bottom: 0.4em;
+  padding: 0.15em 0.6em;
+  font-size: 0.6em;
+  font-weight: 700;
+  color: $primary-color;
+  background: rgba(214, 51, 108, 0.08);
+  border-radius: 999px;
+}
+
+// 사이드바: 둥근 프로필, 그룹 제목은 작은 포인트색 대문자
+.author__avatar img { border-radius: 50%; }
+
+.nav__sub-title {
+  border-bottom: none;
+  color: $primary-color;
+  font-size: 0.9em;
+  letter-spacing: 0.08em;
+}
+
+// 푸터: 조용하게
+.page__footer {
+  border-top: 1px solid $border-color;
+  font-size: 0.85em;
+}
+
+// 좁은 화면의 Follow 버튼: 연결된 링크가 없어 숨김 (링크를 _config author.links에 넣으면 지울 것)
+.author__urls-wrapper { display: none; }
+
+// About 사진
+.page__content img.about-photo {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 16px;
+}
+
+// 검토 반영 (2026-11-04): 목록 열을 글 페이지와 같은 위치로
+@media (min-width: 64em) {
+  // 글 페이지 본문(700px)은 왼쪽 사이드바 250px와 오른쪽 목차 250px 사이 가운데에 옴 → 목록도 같은 자리에
+  // 페이지 틀은 최대 1280px. unquote: Sass가 max()/min()을 자기 함수로 해석하지 않게
+  // 목록은 왼쪽 사이드바(float) 옆 박스라 margin이 사이드바 폭(250px)부터 계산됨
+  .archive { padding-right: 0; margin-left: unquote("calc(250px + max(0px, (min(100vw, 1280px) - 1244px) / 2))"); }
+}
+
+// 검색 결과도 카드·가운데 정렬
+.search-content .inner-wrap { max-width: 700px; margin-inline: auto; }
+.search-content .list__item .archive__item {
+  padding: 1em 1.25em;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+}
+
+// 인용 박스 아래 여백, 추천 글 영역 폭
+.page__content blockquote p:last-child { margin-bottom: 0; }
+.page__related { max-width: 700px; margin-inline: auto; }
+.page__content img { border-radius: 8px; }
+
+/* ============================================================
+   6. 다크 모드 — html[data-theme="dark"]일 때. 처음엔 기기 설정을 따르고,
+      상단 🌙/☀️ 버튼으로 바꾸면 그 선택을 기억함 (_includes/head/custom.html 스크립트), 2026-11-04
+   테마 변수는 빌드 때 고정되므로 여기서 색만 덮어씀
+   ============================================================ */
+
+html[data-theme="dark"] {
+  &, body, .initial-content, .search-content, .page__footer {
+    background-color: #16181d;
+    color: #e6e6e6;
+  }
+
+  .page__footer { background-color: #1d2026; }
+  .masthead { background-color: rgba(22, 24, 29, 0.85); }
+  .home-hero { border-bottom-color: #2c3038; }
+  .home-hero__desc { color: #a0a4ab; }
+  .home-hero__links a { border-color: #2c3038; color: #e6e6e6; }
+  .home-hero__links a:hover { background: #D6336C; border-color: #D6336C; color: #fff; }
+  .archive__item-chip { color: #F783AC; background: rgba(247, 131, 172, 0.12); }
+  .nav__sub-title { color: #F783AC; }
+  .page__footer { border-top-color: #2c3038; }
+  .page__content a { color: #F783AC; }
+
+  a, .site-title, .greedy-nav a, .masthead__menu-item a, .nav__list a,
+  .archive__item-title a, .page__title, .author__name {
+    color: #e6e6e6;
+  }
+
+  a:hover, .greedy-nav a:hover, .masthead__menu-item a:hover { color: #F783AC; }
+
+  .archive__item-excerpt, .page__meta, .page__date, .author__bio, .archive__subtitle { color: #a0a4ab; }
+
+  .archive .list__item .archive__item {
+    border-color: #2c3038;
+    background: #1d2026;
+    &:hover { border-color: #F783AC; }
+  }
+
+  .page__content {
+    h3 { border-bottom-color: #2c3038; }
+
+    > table {
+      th { background: #23272f; }
+      th, td { border-bottom-color: #2c3038; }
+      tbody tr:nth-child(even) { background: #1b1e24; }
+    }
+
+    code { background: #23272f; color: #e6e6e6; }
+    pre code, .highlight code { background: transparent; } // 코드 블록 안은 블록 배경만
+    blockquote { color: #c4c7cc; border-left-color: #F783AC; background: #1d2026; }
+  }
+
+  .toc { background: #1d2026; border-color: #2c3038; }
+  .toc .nav__title { background: #A61E4D; }
+  .toc a, .toc__menu a { color: #c4c7cc; background: #1d2026; border-color: #2c3038; }
+  .toc__menu a:hover { color: #F783AC; }
+
+  hr { border-color: #2c3038; }
+
+  .pagination--pager, .pagination li a {
+    background: #1d2026;
+    color: #e6e6e6;
+    border-color: #2c3038;
+  }
+
+  // 검토 반영 (2026-11-04, 디자인 우사기)
+  // 모바일 햄버거 메뉴: 테마 기본 흰 막·흰 드롭다운
+  .greedy-nav__toggle::before { background: #16181d; }
+  .greedy-nav__toggle .navicon,
+  .greedy-nav__toggle .navicon::before,
+  .greedy-nav__toggle .navicon::after { background: #e6e6e6; }
+  .hidden-links {
+    background: #1d2026;
+    border-color: #2c3038;
+    &::before { border-color: #2c3038 transparent; }
+    &::after { border-color: #1d2026 transparent; }
+    a { color: #e6e6e6; }
+  }
+
+  // 검색 입력 글자
+  .search-input { color: #e6e6e6; }
+  .search-input::placeholder { color: #a0a4ab; }
+
+  // 푸터 GitHub 아이콘 (브랜드색이 배경과 같음)
+  .page__footer-follow .fa-github, .page__footer-follow a { color: #e6e6e6; }
+
+  // 작은 핑크 글자는 다크용 밝은 핑크로 (대비)
+  .home-hero__eyebrow, .search__toggle { color: #F783AC; }
+
+  // 추천 글 구분선, 이미지 눈부심
+  .page__related { border-top-color: #2c3038; }
+  .page__content img { filter: brightness(0.88); }
+}
+
+// 비활성 이전/다음 버튼은 흐리게 (위 다크 덮어쓰기가 지워버린 것 복구, 라이트에도 적용)
+.pagination--pager.disabled { opacity: 0.4; pointer-events: none; }
+
+
+/* ---- 다크 모드 토글 버튼 (상단 메뉴 오른쪽) ---- */
+.theme-toggle {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.1em;
+  line-height: 1;
+  padding: 0 0.5em;
+  margin-left: 0.25em;
+  align-self: center;
+  color: inherit;
+  transition: transform 0.2s ease;
+
+  &:hover { transform: rotate(-15deg) scale(1.1); }
+  &:focus { outline: none; }
+  &:focus-visible { outline: 2px solid $primary-color; border-radius: 6px; }
 }

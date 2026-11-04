@@ -16,7 +16,8 @@ remote_theme: mmistakes/minimal-mistakes@4.28.0
 
 # Outputting
 permalink: /:categories/:title/
-paginate: 5
+paginate: 10
+date_format: "%Y.%m.%d"
 paginate_path: /page:num/
 timezone: Asia/Seoul
 
@@ -31,8 +32,10 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-redirect-from # 옛 글 주소(/retro/weekly-1/ 등) → 새 주소, 2026-11-04
 
 author:
+  name   : "남 진"
   avatar : "/assets/images/baggy-photo.png"
   bio    : "하나씩 차근차근 기록해가는 내 메모리"
 
