@@ -5,6 +5,7 @@
 | 분류 | 주제 | 파일 | 공부한 날 | 연결 프로젝트 |
 |---|---|---|---|---|
 | JPA | 영속성 컨텍스트 · 1차 캐시 · flush · 격리 수준 | [jpa/persistence-context.md](jpa/persistence-context.md) | 11/4 | MINE SSE 재확인 |
+| 네트워크 | SSE · 폴링 · WebSocket · EventSource 인증 | [network/sse.md](network/sse.md) | 11/5 | MINE 폴링 → SSE, 30초 일회용 토큰 |
 
 ## 정리본 템플릿 (11/4 확정, 예시: `jpa/persistence-context.md`)
 
