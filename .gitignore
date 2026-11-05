@@ -6,3 +6,5 @@ Gemfile.lock
 CLAUDE.md
 .dev-tainted-shim.rb
 .claude
+# TIL 원래 메모 (원문 옮긴 것·이미지, 로컬 전용)
+_til/raw/
